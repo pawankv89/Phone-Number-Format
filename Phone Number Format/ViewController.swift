@@ -1,17 +1,11 @@
-# Phone-Number-Format
 
-## Phone Number Format with Third Party Lib For All Format Supported.
-
-Added Some screens here.
-
-![](https://github.com/pawankv89/Phone-Number-Format/blob/master/images/screen_1.png)
-
-
-## Usage
-
-#### Controller
-
-```swift
+//
+//  ViewController.swift
+//  Phone Number Format
+//
+//  Created by Pawan kumar on 06/05/20.
+//  Copyright © 2020 Pawan Kumar. All rights reserved.
+//
 
 import UIKit
 
@@ -172,18 +166,51 @@ extension ViewController{
        }
 }
 
-```
 
-## Requirements
+/*
+ 
+ if textField == self.phoneTextField {
+     
+     self.phoneTextField.text = formatter?.inputDigit(string)
+     
+     let textFieldText: NSString = (textField.text ?? "") as NSString
+     let phoneNo = textFieldText.replacingCharacters(in: range, with: string)
+ 
+     let length = phoneNo.count
+     
+     print("phoneNo ", phoneNo)
+     print("phoneNo length ", length)
+     
+     //return (length > 10) ? false : true
+     
+     do {
+         
+         let phoneUtil = NBPhoneNumberUtil()
+         let phoneNumber: NBPhoneNumber = try phoneUtil.parse(phoneNo, defaultRegion: "US")
+         let formattedString: String = try phoneUtil.format(phoneNumber, numberFormat: .E164)
+        
+         let numbersOnly = phoneUtil.normalize(phoneNo)
+         phoneNumberFormatter = NBAsYouTypeFormatter(regionCode: "US")
+         let text = phoneNumberFormatter!.inputStringAndRememberPosition(numbersOnly)
+                     
+         textField.text = text
+            
+         //print("numbersOnly ", numbersOnly)
+         
+         NSLog("[%@]", formattedString)
+         
+         //textField.text = text
+                
+         return phoneUtil.isValidNumber(phoneNumber)
+         
+     }
+     
+     catch let error as NSError {
+     
+         print("Error:- ", error.localizedDescription)
+         //textField.text = ""
+     }
+     return false
+ }
 
-### Build
-
-Xcode Version 11.3 (11C29), iOS 13.2.0 SDK
-
-## License
-
-This code is distributed under the terms and conditions of the [MIT license](LICENSE).
-
-## Change-log
-
-A brief summary of each this release can be found in the [CHANGELOG](CHANGELOG.mdown). 
+ */
